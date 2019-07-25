@@ -4,9 +4,6 @@ lp_path = $(home)/liquidprompt
 backup_path = $(home)/backup_path
 zsh_path := $(shell which zsh)
 
-clean:
-	rm -rf $(home)
-
 $(backup_path):
 	mkdir -p $(backup_path)
 
@@ -29,7 +26,6 @@ nvim:
 	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 		    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	ln -s -f $(home)/config/init.vim
-
 pyenv:
 	if [ ! -d ~/.pyenv ]; then curl https://pyenv.run | bash; fi
 
@@ -39,3 +35,13 @@ tmux:
 		git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm; \
 	fi
 	ln -s -f $(home)/config/tmux.conf ~/.tmux.conf
+
+
+docker-test: $(pyenv) $(zsh) $(tmux) $(nvim)
+	echo "checkhealth" | nvim -V1 -es -u ~/.config/nvim/init.vim
+
+
+test:
+	echo "***WIP: test expected to fail and therfore undocumented ***"
+	docker build -t afide .
+	docker run afide make docker-test

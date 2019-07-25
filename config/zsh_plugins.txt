@@ -1,11 +1,9 @@
 djui/alias-tips
-# comments are supported like this
-caarlos0/zsh-mkc
 zsh-users/zsh-completions
+<<<<<<< HEAD
 caarlos0/zsh-open-github-pr
 
 # empty lines are skipped
 
 zsh-users/zsh-syntax-highlighting
-zsh-users/zsh-history-substring-search
 nojhan/liquidprompt

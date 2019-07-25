@@ -1,20 +1,51 @@
 #  A Fittest IDE
 
-We provide a toolbox with smart, sharp tools that keep developers happy.
-It is based on neovim, tmux, zsh and their open source extensions. 
-VIM Plugins, shell frameworks and themes -we help you get started by bundling 
-the best of bread.
+We provide a box with smart, sharp tools that keep developers happy.
+The toolbox is based on:
 
-When you install our IDE we will backup existing user conf files and 
+* zsh - a popular shell
+* tmux - a terminal multiplexer: lets you switch easily between several
+  programs in one terminal
+* neovim - an extensible text editor based on vim,vi & ex
+
+To these three interfaces we we add the plugins, frameworks and skins:
+
+* pyenv - simple python version management
+* antibody - zsh plugin manager
+* tpm - tmux plugin manager
+* [liquid prompt](https://github.ocm/nojhan/liquidprompt) - the best prompt, ever
+
+
+When you install our IDE we will backup your conf files and 
 link the files under `~/.afide/config` to their proper place:
 
     $ ll ~/.zshrc
     lrwxrwxrwx ... /home/daonb/.zshrc -> /home/daonb/.afide/config/zshrc
 
+## Goodies
+
+### Commands
+
+* `hi` - to print last 100 commands
+* `vi` - for nvim
+* `ide` - to start or connect to the tmux session
+
+### Plugins Included
+
+* [alias-tips](https://github.com/djui/alias-tips) - reminding you of aliases
+* [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
+* [zsh-completions](https://github.com/zsh-users/zsh-completions) - for missing completions
+
+And from [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) - cp, django,
+docker, docker-compose, fabric, git. man, pip, pienv, pyenv, python, redis-cli,
+sudo, tmux, virualenv.
+
+
 ### Making Changes
 
-If you want to change something, go ahead and edit one of the config files.
-Just don't forget to reset:
+If you want to change something, go ahead, fork this repo  and edit one of the
+files.  All the configuration files are grouped into two directories: `/config`
+and '/skin'.  Just don't forget to reset, to get your changes kick in:
 
 * `exec zsh` when you change a `zsh*` file
 * CTRL-aI for `tmux*` files
@@ -33,7 +64,6 @@ Next, install antibody, pyenv, latest python and the virtual envs required:
 
     curl -sfL git.io/antibody | sh -s - -b /usr/local/bin
     curl https://pyenv.run | zsh
-    	git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
     exec "SHELL"
     pyenv install 2.7.15
     pyenv install 3.7.3
@@ -45,7 +75,7 @@ Next, install antibody, pyenv, latest python and the virtual envs required:
     cd ~/.afide
     make install
 
-Open a new `zsh` and enjoy the fruits of evolution.
+Open a new `zsh` and type `ide` to enjoy the fruits of evolution.
 
 ### Unistalling
 If you decide it's not for you just `afide uninstall` and we'll remove ourselvs and restore the config files. 

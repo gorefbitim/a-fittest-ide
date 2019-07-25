@@ -1,6 +1,5 @@
 djui/alias-tips
 zsh-users/zsh-completions
-<<<<<<< HEAD
 caarlos0/zsh-open-github-pr
 
 # empty lines are skipped
